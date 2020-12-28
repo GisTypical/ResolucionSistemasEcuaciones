@@ -1,0 +1,29 @@
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+.titulo {
+  font-family: "Fira Sans Condensed", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+code {
+  color: white;
+  background-color: #292b31f5;
+}
+
+.datos {
+  width: 10rem;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  margin-left: 10em;
+  margin-right: 10em;
+  padding: 0;
+}

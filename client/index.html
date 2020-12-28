@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&family=Open+Sans&display=swap" rel="stylesheet"/>
+    <title>Calculadora Sis. Ec.</title>
+  </head>
+  <body>
+    <div class="titulo">
+      <h1>Resolución de Sistemas de Ecuaciones ${n}\times{n}$</h1>
+    </div>
+    <div class="info">
+      <p>
+        En el siguiente <strong>textbox</strong> se ingresan coeficientes del
+        sistema de ecuaciones de la siguiente manera:
+        <code>« x y z, a b c, ... n »</code> siendo los ultimos números 
+        <em>terminos independientes</em>. Primero se tiene que 
+        <strong>cargar la tabla</strong> y luego <strong>envia</strong> al servidor. 
+      </p>
+      <p>
+        Por ejemplo: <code>1 5 5, 3 -5 3</code> es igual a $\begin{cases} x +
+        5y = 5\\ 3x - 5y = 3\end{cases}$
+      </p>
+    </div>
+    <hr />
+    <div class="input">
+      <input type="text" placeholder="Sistema de ecuaciones" id="datos" />
+      <input type="button" value="Cargar" id="cargar" />
+    </div>
+    <div class="output">
+      <div id="cargaTabla" style="display: none;">
+        <p>Ha introducido: <span id="matriz"></span></p>
+        <p><strong>Si la tabla es correcta</strong>, proceda a enviar</p>
+        <input type="button" value="Enviar" id="enviar" />
+      </div>
+      <div id="resultadoTabla" style="display: none;">
+        <p>Respuesta: <span id="resultado"></span></p>
+      </div>
+    </div>
+    <script src="./client.js"></script>
+  </body>
+</html>
