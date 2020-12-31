@@ -13,8 +13,8 @@ server.post(`/envio`, (request, response) => {
     console.log(`Se ha recibido: `);
     console.log(request.body);
     const coef = request.body.coef;
-    const ind = request.body.ind;
-    const resultado = eliminacionGauss(coef, ind);
+    const x = request.body.ind;
+    const resultado = eliminacionGauss(coef, x);
     console.log(`Se ha enviado: `);
     console.log(resultado);
     response.json(resultado);
