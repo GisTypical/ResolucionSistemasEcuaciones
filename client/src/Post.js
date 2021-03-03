@@ -12,16 +12,22 @@ const Post = (props) => {
             ind: ind
         })
             .then(function (response) {
-                let datos = response.data.map(value => value.toFixed(4));
-                let respuestaMatriz = `$$\\begin{bmatrix}${datos.join(" \\\\ ")}\\end{bmatrix}$$`;
-                setResults(respuestaMatriz);
+                if (!response.data.includes(null)) {
+                    let data = response.data.map(value => value.toFixed(4));
+                    let latex_results = `$$\\begin{bmatrix}${data.join(" \\\\ ")}\\end{bmatrix}$$`;
+                    setResults(latex_results);
+                } else {
+                    setResults(`$$SE~indeterminado~o~incompatible$$`);
+                }
             })
     }
 
     return (
-        <div className="fetch">
+        <div className="post">
             <button className="button" onClick={fetchData} >Resolver sistema</button>
-            <Latex>{`${results}`}</Latex>
+            <div className="matrix">
+                <Latex>{`${results}`}</Latex>
+            </div>
         </div>
     )
 }

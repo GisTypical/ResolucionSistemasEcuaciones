@@ -1,16 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Poppins:wght@400;600&display=swap');
 
 body {
+  background: #121212;
+  color: rgb(230, 230, 230);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  font-family: Poppins;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-strong, em, code, h1{
-  color: blueviolet;
+strong, em, code{
+  color: #da2dc0;
+}
+
+h1 {
+  font-family: Poppins;
+  color: #fdcf00
 }
 
 code, [type="text"]{
@@ -22,10 +27,15 @@ code, [type="text"]{
 }
 
 .matrix {
-  margin-top: 20px;
+  margin: 25px 0px;
 }
 
-.inputStyle, .matrix, .titulo{
+.post {
+  display: grid;
+  place-items: center;
+}
+
+.formStyle, .titulo, .matrix{
   display: flex;
   justify-content: center;
 }
@@ -33,11 +43,11 @@ code, [type="text"]{
 /* Inputs */
 
 [type="text"], .button {
-  color: rgb(138, 43, 226);
+  color: #da2dc0;
   border-style: solid;
-  border-color: blueviolet;
-  background-color: white;
-  border-radius: 10px;
+  border-color: #da2dc0;
+  background-color: #121212;
+  border-radius: 2em;
 }
 
 [type="text"] {
@@ -46,27 +56,22 @@ code, [type="text"]{
 }
 
 [type="text"]::placeholder{
-  color: rgb(221, 128, 255);
+  color: rgb(170, 57, 153);
 }
 
 .button {
-  margin-left: 30px;
+  font-family: Poppins;
+  margin: 0px 10px;
   padding: 0.3em 1.3em;
   display: inline-block;
+  will-change: all;
+  transition: all 200ms;
 }
 
 .button:hover {
-  animation-name: prueba;
-  animation-duration: 500ms;
-  animation-fill-mode: forwards;
-}
-
-@keyframes prueba {
-  100% {
-    color: white;
-    border-color: transparent;
-    background-color: blueviolet;
-  }
+  border-color: transparent;
+  background-color: #da2dc0;
+  color: white;
 }
 
 /* Focus Outline */
@@ -76,5 +81,5 @@ code, [type="text"]{
 
 *:focus-visible {
   outline: none;
-  box-shadow: 0 0 5px 2px rgba(138, 43, 226, 0.5);
+  box-shadow: 0 0 5px 2px rgba(252, 80, 226, 0.5);
 }

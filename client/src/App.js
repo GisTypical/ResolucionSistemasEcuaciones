@@ -6,7 +6,7 @@ import Post from './Post';
 const App = () => {
     const [values, setValues] = useState({ matrix: [], ind: [] });
     return (
-        <div>
+        <div className="app">
             <Help />
             <Input values={values} onChangeValues={setValues} />
             <Post values={values} />

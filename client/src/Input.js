@@ -6,11 +6,12 @@ const Input = (props) => {
 
     let handleChange = (event) => {
         const { value } = event.target;
-        const ecuaciones = value.split(",");
+        if (value === "") return;
+        const equations = value.split(",");
         let matrixValues = [];
         let indValues = [];
-        for (const [i, ecuacion] of ecuaciones.entries()) {
-            matrixValues.push(ecuacion.split(" "));
+        for (const [i, eq] of equations.entries()) {
+            matrixValues.push(eq.split(" "));
             matrixValues[i] = matrixValues[i].filter(Number);
             indValues.push(matrixValues[i].pop());
         }
@@ -21,6 +22,10 @@ const Input = (props) => {
     }
 
     function printMatrix(matriz, ind) {
+        if (ind.includes(NaN)) {
+            ind.pop();
+            ind.push(0);
+        }
         const latexRows = [];
         let indAux = Array.from(ind);
         for (const fila of matriz) {
@@ -32,9 +37,8 @@ const Input = (props) => {
 
     return (
         <div>
-            <form className="inputStyle">
-                <input type='text' placeholder="Sistema de Ecuaciones" onChange={handleChange} />
-                <input type="button" className="button" value="Ver Matriz" />
+            <form className="formStyle" onSubmit={e => e.preventDefault()} >
+                <input onKeyDown={handleChange} type='text' placeholder="Ingresar Sistema de Ecuaciones" onChange={handleChange} />
             </form>
             <div className="matrix">
                 <Latex>{`${equations}`}</Latex>
